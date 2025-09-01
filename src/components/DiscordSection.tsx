@@ -1,3 +1,6 @@
+
+
+import React from 'react';
 import randomlinesSvg from '../assets/svgs/randomlines.svg';
 import smallrocketSvg from '../assets/svgs/smallrocket.svg';
 
@@ -6,32 +9,32 @@ const DiscordSection: React.FC = () => {
     <section className="py-20 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Random lines on the left - positioned to end where rockets start */}
+        {/* Random lines on the left - positioned behind the rockets */}
         <img 
           src={randomlinesSvg} 
           alt="" 
-          className="absolute left-0 top-0 h-3/4 w-auto opacity-60"
+          className="absolute left-0 top-0 h-3/4 w-auto opacity-60 z-10"
         />
         
         {/* 3 Small rockets on the left - positioned in front of the lines */}
         <img 
           src={smallrocketSvg} 
           alt="" 
-          className="absolute left-[8%] top-[10%] w-16 h-auto opacity-80 z-20"
+          className="absolute left-[8%] top-[10%] w-[70px] h-auto opacity-80 z-20"
         />
         <img 
           src={smallrocketSvg} 
           alt="" 
-          className="absolute left-[12%] top-[25%] w-16 h-auto opacity-80 z-20"
+          className="absolute left-[12%] top-[25%] w-[70px] h-auto opacity-80 z-20"
         />
         <img 
           src={smallrocketSvg} 
           alt="" 
-          className="absolute left-[8%] top-[40%] w-16 h-auto opacity-80 z-20"
+          className="absolute left-[8%] top-[40%] w-[70px] h-auto opacity-80 z-20"
         />
         
         {/* React text near bottom rocket */}
-        <div className="absolute left-[15%] bottom-[25%] text-white/80 font-mono text-sm font-medium pointer-events-none z-10 -rotate-15">
+        <div className="absolute left-[15%] bottom-[25%] text-white/80 font-mono text-sm font-medium pointer-events-none z-30 -rotate-15">
           react
         </div>
       </div>

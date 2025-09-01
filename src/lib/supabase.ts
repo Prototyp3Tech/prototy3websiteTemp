@@ -126,6 +126,67 @@ export interface Database {
           created_at?: string
         }
       }
+      showcase: {
+        Row: {
+          id: string
+          Title: string
+          description: string
+          bullet_1: string
+          bullet_2: string
+          bullet_3: string
+          bullet_4: string
+          core_tech_COMMA_SEPRATED_ONLY: string
+          image_url: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          Title: string
+          description: string
+          bullet_1: string
+          bullet_2: string
+          bullet_3: string
+          bullet_4: string
+          core_tech_COMMA_SEPRATED_ONLY: string
+          image_url?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          Title?: string
+          description?: string
+          bullet_1?: string
+          bullet_2?: string
+          bullet_3?: string
+          bullet_4?: string
+          core_tech_COMMA_SEPRATED_ONLY?: string
+          image_url?: string | null
+          created_at?: string
+        }
+      }
+      team: {
+        Row: {
+          id: string
+          Name: string
+          position: string
+          description: string
+          image_url: string | null
+        }
+        Insert: {
+          id?: string
+          Name: string
+          position: string
+          description: string
+          image_url?: string | null
+        }
+        Update: {
+          id?: string
+          Name?: string
+          position?: string
+          description?: string
+          image_url?: string | null
+        }
+      }
     }
     Views: {
       [_ in never]: never

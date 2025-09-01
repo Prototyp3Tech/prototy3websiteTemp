@@ -140,12 +140,27 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-gray-100 rounded-lg p-8 max-w-md w-full mx-4">
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">Interest form</h2>
+    <div className="interest-form-modal" onClick={onClose}>
+      <div className="interest-form-content" onClick={(e) => e.stopPropagation()}>
+        {/* Fixed Header */}
+        <div className="text-center mb-6 flex-shrink-0">
+          <div className="flex justify-between items-center mb-2">
+            <h2 className="text-2xl font-bold text-gray-800">Interest form</h2>
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-gray-600 transition-colors p-1"
+              aria-label="Close modal"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
           <p className="text-gray-600">step {currentStep} of 2</p>
         </div>
+        
+        {/* Scrollable Content Area */}
+        <div className="flex-1 overflow-y-auto min-h-0 px-1">
 
         {currentStep === 1 ? (
           <div className="space-y-4">
@@ -676,8 +691,10 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
              </div>
            </div>
          )}
+        </div>
 
-        <div className="flex justify-between mt-8">
+        {/* Fixed Footer with Buttons */}
+        <div className="flex justify-between mt-6 pt-4 border-t border-gray-200 flex-shrink-0">
           <button
             onClick={handleBack}
             className="px-6 py-2 bg-white text-gray-800 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"

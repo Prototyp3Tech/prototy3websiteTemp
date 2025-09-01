@@ -1,3 +1,6 @@
+import logo from '../assets/logo/logo.svg';
+
+
 interface HeaderProps {
   onOpenInterestForm: () => void;
 }
@@ -12,9 +15,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenInterestForm }) => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Logo */}
             <div className="flex items-center">
-              <span className="text-2xl font-bold">
-                <span className="text-teal-800">Prototyp</span>
-                <span className="text-orange-500">3</span>
+              <span className="inline-flex items-center">
+                <img src={logo} alt="Prototyp3" className="w-10 h-10" />
+                <span className="logoFont ml-[10px]" style={{ fontFamily: 'var(--font-headline)' }}>Prototyp3</span>
               </span>
             </div>
 

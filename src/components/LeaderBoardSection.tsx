@@ -18,32 +18,7 @@ const LeaderBoardSection: React.FC<LeaderBoardSectionProps> = ({ onOpenInterestF
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-teal-600">
-      {/* Background doodles and decorative elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Lightbulb doodle */}
-        <div className="absolute top-[10%] left-[8%] text-white/60 text-4xl">💡</div>
-        {/* Magnifying glass doodle */}
-        <div className="absolute top-[20%] right-[12%] text-white/60 text-3xl">🔍</div>
-        {/* APG text doodle */}
-        <div className="absolute bottom-[15%] left-[15%] text-white/60 font-bold text-lg">APG</div>
-        {/* Bowl with spoon doodle */}
-        <div className="absolute bottom-[25%] left-[20%] text-white/60 text-2xl">🥣</div>
-        
-        {/* Rocket with orange trail */}
-        <div className="absolute top-[15%] left-[5%] text-gray-800 text-4xl">🚀</div>
-        <div className="absolute top-[12%] left-[8%] w-16 h-1 bg-orange-500 transform rotate-45 origin-left"></div>
-        
-        {/* Handshake figures */}
-        <div className="absolute bottom-[10%] right-[8%] text-white/80 text-3xl">🤝</div>
-        
-        {/* Orange tech icons stack */}
-        <div className="absolute top-[30%] right-[8%] space-y-4">
-          <div className="text-orange-500 text-2xl font-mono">&lt;/&gt;</div>
-          <div className="text-orange-500 text-2xl font-mono">{}</div>
-          <div className="text-orange-500 text-2xl">⚙️</div>
-        </div>
-      </div>
+    <section className="relative min-h-screen overflow-hidden">
 
       <div className="relative max-w-6xl mx-auto px-5 pt-28 pb-20">
         {/* Main Leaderboard Card */}

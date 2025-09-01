@@ -1,8 +1,56 @@
-import { useUsers } from '../hooks/useSupabase';
+import { useState, useEffect } from 'react'
+import { useTeam } from '../hooks/useSupabase';
 import faceSvg from '../assets/svgs/face.svg';
 
 const TeamSection: React.FC = () => {
-  const { users, loading, error } = useUsers();
+  const { team, loading, error } = useTeam();
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
+  // Define position hierarchy for ordering
+  const positionOrder = [
+    'Founder & CEO',
+    'Tech Lead',
+    'UI/UX Design Coordinator',
+    'Marketing Lead',
+    'Developer'
+  ];
+
+  // Sort team members by position hierarchy, then by name
+  const sortedTeam = [...team].sort((a, b) => {
+    // Normalize positions (trim whitespace and normalize case)
+    const normalizePosition = (pos: string) => pos.trim().toLowerCase();
+    const normalizedPositionOrder = positionOrder.map(pos => normalizePosition(pos));
+    
+    const aIndex = normalizedPositionOrder.indexOf(normalizePosition(a.position));
+    const bIndex = normalizedPositionOrder.indexOf(normalizePosition(b.position));
+    
+    // If both positions are in the hierarchy, sort by hierarchy
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex;
+    }
+    
+    // If only one is in hierarchy, prioritize it
+    if (aIndex !== -1) return -1;
+    if (bIndex !== -1) return 1;
+    
+    // If neither is in hierarchy, sort alphabetically by name
+    return a.Name.localeCompare(b.Name);
+  });
+
+  useEffect(() => {
+    if (sortedTeam.length > 0) setSelectedIndex(0)
+  }, [sortedTeam.length])
+
+  // Auto-rotate through team members every 7 seconds
+  useEffect(() => {
+    if (sortedTeam.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setSelectedIndex(current => (current + 1) % sortedTeam.length);
+    }, 7000); // 7 seconds
+
+    return () => clearInterval(interval);
+  }, [sortedTeam.length])
 
   return (
     <section className="team-section w-full">
@@ -11,79 +59,66 @@ const TeamSection: React.FC = () => {
         {/* <p className="section-subtitle">The brilliant minds behind Prototyp3</p> */}
         
         {/* Team Section - Always visible */}
-        <div className="mt-0 max-w-4xl">
+        <div className="mt-0 w-3xl">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">
               The humans behind Prototyp3
             </h2>
             
-            {/* Team Avatars */}
+            {/* Team Avatars (dynamic) */}
             <div className="flex justify-center items-center space-x-3 mb-8">
-              {/* Fox Avatar (Highlighted) */}
-              <div className="relative">
-                <div className="w-20 h-20 rounded-full border-4 border-orange-500 overflow-hidden">
-                  <img src={faceSvg} alt="Funny Fox" className="w-full h-full object-cover" />
+              {sortedTeam.length === 0 && (
+                <div className="w-[5.35rem] h-[5.35rem] rounded-full border-4 border-gray-300 overflow-hidden">
+                  <img src={faceSvg} alt="Team" className="w-full h-full object-cover" />
                 </div>
+              )}
+              {sortedTeam.map((member, index) => {
+                const isSelected = index === selectedIndex
+                return (
+                  <button
+                    key={member.id}
+                    type="button"
+                    onClick={() => setSelectedIndex(index)}
+                    className={`w-[5.35rem] h-[5.35rem] rounded-full border-4 overflow-hidden focus:outline-none transition-all duration-300 ${
+                      isSelected ? 'border-orange-500' : 'border-gray-300'
+                    }`}
+                    aria-label={member.Name}
+                  >
+                    <img
+                      src={member.image_url || faceSvg}
+                      alt={member.Name}
+                      className={`w-full h-full object-cover transition-all duration-300 ${isSelected ? '' : 'grayscale'}`}
+                    />
+                  </button>
+                )
+              })}
+            </div>
+
+            {/* Selected Team Member Details */}
+            {sortedTeam.length > 0 && (
+              <div className="text-center max-w-2xl mx-auto">
+                <h3 className="text-xl font-bold text-gray-800 mb-1">{sortedTeam[selectedIndex].Name}</h3>
+                <p className="text-gray-600 mb-4">{sortedTeam[selectedIndex].position}</p>
+                <p className="text-gray-700 leading-relaxed">{sortedTeam[selectedIndex].description}</p>
               </div>
-              
-              {/* Other Team Members */}
-              {[1, 2, 3, 4].map((index) => (
-                <div key={index} className="w-20 h-20 rounded-full border-4 border-gray-300 overflow-hidden">
-                  <img src={faceSvg} alt={`Team Member ${index}`} className="w-full h-full object-cover grayscale" />
-                </div>
-              ))}
-            </div>
-            
-            {/* Team Member Description */}
-            <div className="text-center max-w-2xl mx-auto">
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Funny Fox</h3>
-              <p className="text-gray-600 mb-4">The one that makes others laugh.</p>
-              <p className="text-gray-700 leading-relaxed">
-                It started with a joke that animals couldn't code, but soon realized the best joke of all would be to prove that animals could code. So, how did Fox do it without thumbs? Why not join in and ask Fox for yourself.
-              </p>
-            </div>
+            )}
           </div>
         </div>
 
-        {/* Additional Team Members from Database */}
+        {/* Team Members from Supabase Team table */}
         {loading && (
           <div className="mt-8 text-center">
-            <p className="text-gray-600">Loading additional team members...</p>
+            <p className="text-gray-600">Loading team...</p>
           </div>
         )}
 
         {error && (
           <div className="mt-8 text-center">
-            {/* <p className="text-red-600">Error loading additional team members: {error}</p> */}
+            {/* error intentionally hidden from UI */}
           </div>
         )}
 
-        {!loading && !error && users.length > 0 && (
-          <div className="mt-8">
-            <h3 className="text-2xl font-bold text-center mb-6">Additional Team Members</h3>
-            <div className="team-grid">
-              {users.slice(0, 4).map((member) => (
-                <div key={member.id} className="team-member">
-                  <div className="member-avatar">
-                    {member.avatar_url ? (
-                      <img src={member.avatar_url} alt={member.full_name} />
-                    ) : (
-                      <span className="avatar-emoji">👨‍💼</span>
-                    )}
-                  </div>
-                  <h3 className="member-name">{member.full_name}</h3>
-                  <p className="member-role">Team Member</p>
-                  <p className="member-bio">Passionate contributor to Prototyp3</p>
-                  
-                  <div className="member-social">
-                    <button className="social-btn">LinkedIn</button>
-                    <button className="social-btn">Twitter</button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        {/* Removed duplicate cards grid */}
         
         <div className="team-cta">
           {/* <p>Want to join our team?</p> */}

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import nokiaSvg from '../assets/svgs/nokia.svg';
-import pixlnextSvg from '../assets/svgs/pixlnext.svg';
+// import nokiaSvg from '../assets/svgs/nokia.svg';
+// import pixlnextSvg from '../assets/svgs/pixlnext.svg';
 import SciSocSvg from '../assets/svgs/SciSoc.svg';
-import sportlinkSvg from '../assets/svgs/sportlink.svg';
-import tailedSvg from '../assets/svgs/tailed.svg';
+// import sportlinkSvg from '../assets/svgs/sportlink.svg';
 import orangeBgSvg from '../assets/svgs/oragngebg.svg';
+import tailedSvg from '../assets/svgs/tailed.svg';
 
 const SponsorsSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -29,10 +29,10 @@ const SponsorsSection: React.FC = () => {
 
   const partners = [
     // { name: "hayden's hub", logo: haydenSvg, alt: "Hayden's Hub" },
-    { name: "PixlNext", logo: pixlnextSvg, alt: "PixlNext" },
-    { name: "SportzLinkz", logo: sportlinkSvg, alt: "SportzLinkz" },
+    // { name: "PixlNext", logo: pixlnextSvg, alt: "PixlNext" },
+    // { name: "SportzLinkz", logo: sportlinkSvg, alt: "SportzLinkz" },
     { name: "Carleton University SciSoc", logo: SciSocSvg, alt: "Carleton University SciSoc" },
-    { name: "NOKIA", logo: nokiaSvg, alt: "NOKIA" },
+    // { name: "NOKIA", logo: nokiaSvg, alt: "NOKIA" },
     { name: "Tail'ed", logo: tailedSvg, alt: "Tail'ed" }
   ];
 
@@ -40,9 +40,9 @@ const SponsorsSection: React.FC = () => {
 
   return (
     <section className="sponsors-section">
-      {/* Orange background shape */}
+      {/* Orange background blob */}
       <div className="orange-bg-shape">
-        <img src={orangeBgSvg} alt="" />
+        <img src={orangeBgSvg} alt="Orange background shape" />
       </div>
       
       {/* Main container */}
@@ -80,12 +80,12 @@ const SponsorsSection: React.FC = () => {
           </div>
           
           {/* Descriptive text */}
-          <p className="sponsors-description">
+          <p className="sponsors-description" id='contact'>
             We're grateful to our partners who share our commitment to putting students first to help create meaningful opportunities that make a real difference in education.
           </p>
           
           {/* Contact form */}
-          <div className="contact-form-container">
+          <div className="contact-form-container" >
             <h3 className="contact-title">Get in touch</h3>
             <p className="contact-subtitle">
               Share our vision? We're excited to explore partnerships that put students first.

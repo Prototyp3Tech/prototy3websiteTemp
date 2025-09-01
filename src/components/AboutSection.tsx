@@ -3,6 +3,7 @@ import rocketTop from "../assets/svgs/rocketTop.svg";
 import rocketMid1 from "../assets/svgs/rocketmid1.svg";
 import rocketMid2 from "../assets/svgs/rocketmid2.svg";
 import rocketBottom from "../assets/svgs/rocketbottom.svg";
+import rocketThruster from "../assets/svgs/rocketThruster.svg";
 
 const AboutSection: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -68,17 +69,13 @@ const AboutSection: React.FC = () => {
     ));
 
   return (
-    <section className="about-section w-full">
+    <section className="about-section w-full" id="about">
       <div className="w-full flex justify-center">
         <div className="about-content max-w-8xl w-full px-4">
           <div className="about-text text-center">
-            <h2 className="section-title">The humans behind Prototyp3</h2>
+            {/* <h2 className="section-title">The humans behind Prototyp3</h2> */}
 
             <div className="rocket-animation-container overflow-visible">
-              {/* background doodles */}
-              <div className="bg-decoration html">html</div>
-              <div className="bg-decoration bowl">🥣</div>
-              <div className="bg-decoration lightbulb">💡</div>
 
               <div className="rocket-step-card">
                 {/* STEP 1 — bubble above entire rocket */}
@@ -257,8 +254,8 @@ const AboutSection: React.FC = () => {
                   {/* Bottom piece always last */}
                   {currentRocketStep.rocketParts.bottom && (
                     <img
-                      src={rocketBottom}
-                      alt="Rocket Bottom"
+                      src={currentRocketStep.isLaunching ? rocketThruster : rocketBottom}
+                      alt={currentRocketStep.isLaunching ? "Rocket Thruster" : "Rocket Bottom"}
                       className={`rocket-part rocket-bottom ${
                         currentRocketStep.isLaunching ? "launching" : ""
                       } ${
@@ -269,11 +266,6 @@ const AboutSection: React.FC = () => {
                           : ""
                       }`}
                     />
-                  )}
-
-                  {/* Launch smoke for Step 5 */}
-                  {currentRocketStep.isLaunching && (
-                    <div className="launch-smoke" />
                   )}
                 </div>
 
@@ -313,6 +305,7 @@ const AboutSection: React.FC = () => {
                   )}
               </div>
             </div>
+            
           </div>
         </div>
         
