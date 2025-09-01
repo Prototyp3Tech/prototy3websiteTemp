@@ -1,0 +1,140 @@
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables')
+}
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+// Database types for TypeScript
+export interface Database {
+  public: {
+    Tables: {
+      users: {
+        Row: {
+          id: string
+          email: string
+          full_name: string
+          avatar_url: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          email: string
+          full_name: string
+          avatar_url?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          email?: string
+          full_name?: string
+          avatar_url?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      projects: {
+        Row: {
+          id: string
+          title: string
+          description: string
+          category: string
+          tags: string[]
+          image_url: string | null
+          user_id: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          title: string
+          description: string
+          category: string
+          tags: string[]
+          image_url?: string | null
+          user_id: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          description?: string
+          category?: string
+          tags?: string[]
+          image_url?: string | null
+          user_id?: string
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      leaderboard: {
+        Row: {
+          id: string
+          user_id: string
+          score: number
+          category: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          score: number
+          category: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          score?: number
+          category?: string
+          created_at?: string
+        }
+      }
+      sponsors: {
+        Row: {
+          id: string
+          name: string
+          tier: 'platinum' | 'gold' | 'silver'
+          logo_url: string | null
+          description: string
+          website_url: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          tier: 'platinum' | 'gold' | 'silver'
+          logo_url?: string | null
+          description: string
+          website_url?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          tier?: 'platinum' | 'gold' | 'silver'
+          logo_url?: string | null
+          description?: string
+          website_url?: string | null
+          created_at?: string
+        }
+      }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      [_ in never]: never
+    }
+    Enums: {
+      [_ in never]: never
+    }
+  }
+}

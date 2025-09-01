@@ -1,0 +1,14 @@
+/* Import IBM Plex Serif font */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+.transWhite {
+    background-color: #C5D6DB;
+}
+
+.bodyColor{
+    background: radial-gradient(
+    ellipse at top,
+    rgba(255, 255, 255, 0.16),
+    transparent 60%
+  );
+}
