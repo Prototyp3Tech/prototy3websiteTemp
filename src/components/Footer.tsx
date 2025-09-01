@@ -1,4 +1,3 @@
-import React from 'react';
 import discordSvg from '../assets/svgs/discord.svg';
 import linkedinSvg from '../assets/svgs/linkedin.svg';
 import emailSvg from '../assets/svgs/email.svg';

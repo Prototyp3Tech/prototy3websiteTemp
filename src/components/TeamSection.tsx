@@ -1,4 +1,3 @@
-import React from 'react';
 import { useUsers } from '../hooks/useSupabase';
 import faceSvg from '../assets/svgs/face.svg';
 

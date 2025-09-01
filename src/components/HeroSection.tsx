@@ -1,4 +1,3 @@
-import React from 'react';
 import heroRightSvg from '../assets/svgs/heroRight.svg';
 
 interface HeroSectionProps {

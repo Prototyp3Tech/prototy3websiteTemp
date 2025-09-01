@@ -1,4 +1,3 @@
-import React from 'react';
 import randomlinesSvg from '../assets/svgs/randomlines.svg';
 import smallrocketSvg from '../assets/svgs/smallrocket.svg';
 

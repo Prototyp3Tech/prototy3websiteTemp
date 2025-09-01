@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import rocketTop from "../assets/svgs/rocketTop.svg";
 import rocketMid1 from "../assets/svgs/rocketmid1.svg";
 import rocketMid2 from "../assets/svgs/rocketmid2.svg";
 import rocketBottom from "../assets/svgs/rocketbottom.svg";
-import faceSvg from "../assets/svgs/face.svg";
 
 const AboutSection: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -54,7 +53,6 @@ const AboutSection: React.FC = () => {
     currentStep < totalSteps && setCurrentStep((s) => s + 1);
   const prevStep = () =>
     currentStep > 1 && setCurrentStep((s) => s - 1);
-  const resetAnimation = () => setCurrentStep(1);
 
   const currentRocketStep = rocketSteps[currentStep - 1];
 

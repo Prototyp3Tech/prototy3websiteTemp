@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const ShowcaseSection: React.FC = () => {
   // Using static data for now to see the design

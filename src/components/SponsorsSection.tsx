@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import haydenSvg from '../assets/svgs/hayden.svg';
+import { useState } from 'react';
 import nokiaSvg from '../assets/svgs/nokia.svg';
 import pixlnextSvg from '../assets/svgs/pixlnext.svg';
 import SciSocSvg from '../assets/svgs/SciSoc.svg';

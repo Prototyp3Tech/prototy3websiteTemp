@@ -1,6 +1,4 @@
-import React from 'react';
 import leaderboardSvg from '../assets/svgs/leaderboard.svg';
-import faceSvg from '../assets/svgs/face.svg';
 
 interface LeaderBoardSectionProps {
   onOpenInterestForm: () => void;
