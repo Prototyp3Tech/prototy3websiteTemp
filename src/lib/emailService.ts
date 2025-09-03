@@ -28,36 +28,13 @@ Your Website`;
 };
 
 export const sendContactEmail = async (formData: ContactFormData): Promise<void> => {
-  try {
-    // Get Supabase URL and anon key from environment
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-    
-    if (!supabaseUrl || !supabaseAnonKey) {
-      throw new Error('Missing Supabase environment variables');
-    }
-
-    // Call the Supabase Edge Function (using simple version for now)
-    const response = await fetch(`${supabaseUrl}/functions/v1/send-contact-email-simple`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${supabaseAnonKey}`,
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || 'Failed to send email');
-    }
-
-    const result = await response.json();
-    console.log('Email sent successfully:', result);
-  } catch (error) {
-    console.error('Error sending email:', error);
-    throw error;
-  }
+  const { subject, body } = createEmailTemplate(formData);
+  
+  // Create mailto link with the email content
+  const mailtoLink = `mailto:prototyp3.org@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  
+  // Open the user's default email client
+  window.open(mailtoLink, '_blank');
 };
 
 // Alternative: If you want to use a service like EmailJS, Formspree, or Netlify Forms
