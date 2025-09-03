@@ -1,4 +1,4 @@
-import heroRightSvg from '../assets/svgs/heroRight.svg';
+// import heroRightSvg from '../assets/svgs/heroRight.svg';
 import heroRightSvg2 from '../assets/svgs/heroSVG2.svg';
 
 interface HeroSectionProps {
