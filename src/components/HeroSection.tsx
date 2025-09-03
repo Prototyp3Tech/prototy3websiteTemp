@@ -13,7 +13,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
 
   return (
-    <section className="text-gray-800 py-8 sm:py-12 md:py-20 min-h-screen flex items-center relative overflow-hidden">
+    <section className="text-gray-800 py-8 sm:py-12 md:py-20 min-h-screen flex items-center relative overflow-hidden" id="hero">
       
       <div className="mx-auto px-3 sm:px-5 grid grid-cols-1 lg:grid-cols-2 gridFixer gap-8 lg:gap-12">
         <div className="flex justify-center order-2 lg:order-1">

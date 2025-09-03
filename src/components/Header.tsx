@@ -15,10 +15,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenInterestForm }) => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
             {/* Logo */}
             <div className="flex items-center">
-              <span className="inline-flex items-center">
-                <img src={logo} alt="Prototyp3" className="w-8 h-8 sm:w-10 sm:h-10" />
-                <span className="logoFont ml-2 sm:ml-[10px] text-lg sm:text-xl md:text-2xl" style={{ fontFamily: 'var(--font-headline)' }}>Prototyp3</span>
-              </span>
+              <a href="#hero">
+                <span className="inline-flex items-center">
+                  <img src={logo} alt="Prototyp3" className="w-8 h-8 sm:w-10 sm:h-10" />
+                  <span className="logoFont ml-2 sm:ml-[10px] text-lg sm:text-xl md:text-2xl" style={{ fontFamily: 'var(--font-headline)' }}>Prototyp3</span>
+                </span>
+              </a>
             </div>
 
             {/* Nav */}
@@ -26,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenInterestForm }) => {
               <a href="#about" className="text-gray-800 font-medium hover:text-teal-600 transition-colors text-sm sm:text-base">
                 About
               </a>
-              <a href="#projects" className="text-teal-800 font-medium hover:text-teal-600 transition-colors text-sm sm:text-base">
+              <a href="#projects" className="text-gray-800 font-medium hover:text-teal-600 transition-colors text-sm sm:text-base">
                 Projects
               </a>
               <a href="#contact" className="text-gray-800 font-medium hover:text-teal-600 transition-colors text-sm sm:text-base">

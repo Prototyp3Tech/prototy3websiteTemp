@@ -5,6 +5,7 @@ import SciSocSvg from '../assets/svgs/SciSoc.svg';
 // import sportlinkSvg from '../assets/svgs/sportlink.svg';
 import orangeBgSvg from '../assets/svgs/oragngebg.svg';
 import tailedSvg from '../assets/svgs/tailed.svg';
+import { useContactForm } from '../hooks/useSupabase';
 
 const SponsorsSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -13,18 +14,36 @@ const SponsorsSection: React.FC = () => {
     message: ''
   });
 
+  const { submitContactForm, loading, error, success, resetForm } = useContactForm();
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    
+    // Reset success/error states when user starts typing
+    if (success || error) {
+      resetForm();
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    
+    try {
+      await submitContactForm(formData);
+      // Reset form on successful submission
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+    } catch (err) {
+      // Error is handled by the hook
+      console.error('Form submission error:', err);
+    }
   };
 
   const partners = [
@@ -92,6 +111,20 @@ const SponsorsSection: React.FC = () => {
             </p>
             
             <form onSubmit={handleSubmit} className="contact-form">
+              {/* Success Message */}
+              {success && (
+                <div className="form-message success-message">
+                  <p>Thank you for your message! We'll get back to you soon.</p>
+                </div>
+              )}
+              
+              {/* Error Message */}
+              {error && (
+                <div className="form-message error-message">
+                  <p>{error}</p>
+                </div>
+              )}
+              
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="name" className="form-label">
@@ -105,6 +138,7 @@ const SponsorsSection: React.FC = () => {
                     onChange={handleInputChange}
                     className="form-input"
                     required
+                    disabled={loading}
                   />
                 </div>
                 
@@ -120,13 +154,14 @@ const SponsorsSection: React.FC = () => {
                     onChange={handleInputChange}
                     className="form-input"
                     required
+                    disabled={loading}
                   />
                 </div>
               </div>
               
               <div className="form-group">
                 <label htmlFor="message" className="form-label">
-                  Leave us a message here!
+                  Leave us a message here! <span className="required">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -135,13 +170,25 @@ const SponsorsSection: React.FC = () => {
                   onChange={handleInputChange}
                   className="form-textarea"
                   rows={4}
+                  required
+                  disabled={loading}
                 />
               </div>
               
-              <button type="submit" className="submit-button group">
+              <button 
+                type="submit" 
+                className="submit-button group"
+                disabled={loading}
+              >
                 <span className="transition-all duration-300">
-                  <span className="group-hover:hidden">Submit</span>
-                  <span className="hidden group-hover:inline">{'{ Submit }'}</span>
+                  {loading ? (
+                    <span>Sending...</span>
+                  ) : (
+                    <>
+                      <span className="group-hover:hidden">Submit</span>
+                      <span className="hidden group-hover:inline">{'{ Submit }'}</span>
+                    </>
+                  )}
                 </span>
               </button>
             </form>

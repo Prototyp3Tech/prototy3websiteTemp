@@ -118,8 +118,16 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
     if (currentStep === 2) {
       setCurrentStep(1);
     } else {
-      onClose();
+      handleClose();
     }
+  };
+
+  const handleClose = () => {
+    // Clear the hash from URL when closing the form
+    if (window.location.hash === '#interest-form') {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+    onClose();
   };
 
   const handleSubmit = async () => {
@@ -143,7 +151,7 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
       
       // Reset form and close modal after a delay
       setTimeout(() => {
-        onClose();
+        handleClose();
         setCurrentStep(1);
         setIsSubmitted(false);
         setFormData({
@@ -168,14 +176,14 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="interest-form-modal" onClick={onClose}>
+    <div className="interest-form-modal" onClick={handleClose}>
       <div className="interest-form-content" onClick={(e) => e.stopPropagation()}>
         {/* Fixed Header */}
         <div className="text-center mb-6 flex-shrink-0">
           <div className="flex justify-between items-center mb-2">
             <h2 className="text-2xl font-bold text-gray-800">Interest form</h2>
             <button
-              onClick={onClose}
+              onClick={handleClose}
               className="text-gray-400 hover:text-gray-600 transition-colors p-1"
               aria-label="Close modal"
             >

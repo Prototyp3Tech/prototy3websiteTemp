@@ -370,3 +370,50 @@ export const useInterestForm = () => {
 
   return { submitInterestForm, loading, error }
 }
+
+// Contact Form
+interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export const useContactForm = () => {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [success, setSuccess] = useState(false)
+
+  const submitContactForm = async (formData: ContactFormData) => {
+    try {
+      setLoading(true)
+      setError(null)
+      setSuccess(false)
+      
+      const { data, error } = await supabase.functions.invoke('ContactFormEmail', {
+        body: formData
+      })
+
+      if (error) throw error
+      
+      if (data?.success) {
+        setSuccess(true)
+        return data
+      } else {
+        throw new Error(data?.message || 'Failed to send email')
+      }
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'An error occurred while sending your message'
+      setError(errorMessage)
+      throw err
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const resetForm = () => {
+    setError(null)
+    setSuccess(false)
+  }
+
+  return { submitContactForm, loading, error, success, resetForm }
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 // import LeaderBoardSection from '../components/LeaderBoardSection';
@@ -16,6 +16,25 @@ const Landing: React.FC = () => {
 
   const openInterestForm = () => setIsInterestFormOpen(true);
   const closeInterestForm = () => setIsInterestFormOpen(false);
+
+  // Check for URL hash on component mount and when hash changes
+  useEffect(() => {
+    const checkHash = () => {
+      if (window.location.hash === '#interest-form') {
+        openInterestForm();
+      }
+    };
+
+    // Check hash on mount
+    checkHash();
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', checkHash);
+
+    return () => {
+      window.removeEventListener('hashchange', checkHash);
+    };
+  }, []);
 
   return (
     <div className="leading-relaxed text-gray-800 relative min-h-screen" style={{
