@@ -5,6 +5,7 @@ import SciSocSvg from '../assets/svgs/SciSoc.svg';
 // import sportlinkSvg from '../assets/svgs/sportlink.svg';
 import orangeBgSvg from '../assets/svgs/oragngebg.svg';
 import tailedSvg from '../assets/svgs/tailed.svg';
+import { sendContactEmail } from '../lib/emailService';
 
 const SponsorsSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,8 @@ const SponsorsSection: React.FC = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -21,10 +24,37 @@ const SponsorsSection: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      await sendContactEmail(formData);
+      setSubmitStatus('success');
+      
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+      
+      // Reset error message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const partners = [
@@ -138,12 +168,34 @@ const SponsorsSection: React.FC = () => {
                 />
               </div>
               
-              <button type="submit" className="submit-button group">
+              <button 
+                type="submit" 
+                className="submit-button group"
+                disabled={isSubmitting}
+              >
                 <span className="transition-all duration-300">
-                  <span className="group-hover:hidden">Submit</span>
-                  <span className="hidden group-hover:inline">{'{ Submit }'}</span>
+                  {isSubmitting ? (
+                    'Sending...'
+                  ) : (
+                    <>
+                      <span className="group-hover:hidden">Submit</span>
+                      <span className="hidden group-hover:inline">{'{ Submit }'}</span>
+                    </>
+                  )}
                 </span>
               </button>
+              
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="status-message success-message">
+                  ✅ Thank you! Your message has been sent. We'll get back to you soon.
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="status-message error-message">
+                  ❌ Sorry, there was an error sending your message. Please try again or contact us directly.
+                </div>
+              )}
             </form>
           </div>
         </div>

@@ -187,6 +187,64 @@ export interface Database {
           image_url?: string | null
         }
       }
+      InterestForm: {
+        Row: {
+          id: string
+          name: string
+          email: string
+          university: string
+          learning_journey: string
+          heard_about: string
+          anything_else: string | null
+          interests: string
+          'interest-in-prototyp3': string
+        }
+        Insert: {
+          id?: string
+          name: string
+          email: string
+          university: string
+          learning_journey: string
+          heard_about: string
+          anything_else?: string | null
+          interests: string
+          'interest-in-prototyp3': string
+        }
+        Update: {
+          id?: string
+          name?: string
+          email?: string
+          university?: string
+          learning_journey?: string
+          heard_about?: string
+          anything_else?: string | null
+          interests?: string
+          'interest-in-prototyp3'?: string
+        }
+      }
+      contact_submissions: {
+        Row: {
+          id: string
+          name: string
+          email: string
+          message: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          email: string
+          message: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          email?: string
+          message?: string
+          created_at?: string
+        }
+      }
     }
     Views: {
       [_ in never]: never

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useInterestForm } from '../hooks/useSupabase';
 
 interface InterestFormProps {
   isOpen: boolean;
@@ -18,10 +19,13 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
     additionalInfo: ''
   });
 
+  const { submitInterestForm, loading, error } = useInterestForm();
+
   const [otherActivityText, setOtherActivityText] = useState('');
   const [otherInterestText, setOtherInterestText] = useState('');
   const [showInterestDropdown, setShowInterestDropdown] = useState(false);
   const [showActivityDropdown, setShowActivityDropdown] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   
   const interestDropdownRef = useRef<HTMLDivElement>(null);
   const activityDropdownRef = useRef<HTMLDivElement>(null);
@@ -118,23 +122,47 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
     }
   };
 
-  const handleSubmit = () => {
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    onClose();
-    setCurrentStep(1);
-    setFormData({
-      fullName: '',
-      email: '',
-      enrollment: '',
-      learningJourney: '',
-      interests: [],
-      activities: [],
-      heardFrom: '',
-      additionalInfo: ''
-    });
-    setOtherActivityText('');
-    setOtherInterestText('');
+  const handleSubmit = async () => {
+    try {
+      // Map form data to database fields
+      const interestFormData = {
+        name: formData.fullName,
+        email: formData.email,
+        university: formData.enrollment,
+        learning_journey: formData.learningJourney,
+        heard_about: formData.heardFrom,
+        anything_else: formData.additionalInfo || null,
+        interests: formData.interests.map(interest => getInterestDisplayName(interest)).join(', '),
+        'interest-in-prototyp3': formData.activities.map(activity => getActivityDisplayName(activity)).join(', ')
+      };
+
+      await submitInterestForm(interestFormData);
+      
+      // Show success state
+      setIsSubmitted(true);
+      
+      // Reset form and close modal after a delay
+      setTimeout(() => {
+        onClose();
+        setCurrentStep(1);
+        setIsSubmitted(false);
+        setFormData({
+          fullName: '',
+          email: '',
+          enrollment: '',
+          learningJourney: '',
+          interests: [],
+          activities: [],
+          heardFrom: '',
+          additionalInfo: ''
+        });
+        setOtherActivityText('');
+        setOtherInterestText('');
+      }, 2000);
+    } catch (err) {
+      // Error is already handled by the hook
+      console.error('Form submission error:', err);
+    }
   };
 
   if (!isOpen) return null;
@@ -157,6 +185,20 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
             </button>
           </div>
           <p className="text-gray-600">step {currentStep} of 2</p>
+          
+          {/* Error Message */}
+          {error && (
+            <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-md">
+              <p className="text-sm">{error}</p>
+            </div>
+          )}
+          
+          {/* Success Message */}
+          {isSubmitted && (
+            <div className="mt-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded-md">
+              <p className="text-sm">Thank you! Your interest form has been submitted successfully.</p>
+            </div>
+          )}
         </div>
         
         {/* Scrollable Content Area */}
@@ -464,7 +506,10 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
                                    setShowInterestDropdown(false);
                                  }
                                }}
-                               className="px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700"
+                               className="px-2 py-1 text-xs text-white rounded"
+                               style={{ backgroundColor: '#1F2937' }}
+                               onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
+                               onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937'}
                              >
                                Add
                              </button>
@@ -619,7 +664,10 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
                                    setShowActivityDropdown(false);
                                  }
                                }}
-                               className="px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700"
+                               className="px-2 py-1 text-xs text-white rounded"
+                               style={{ backgroundColor: '#1F2937' }}
+                               onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
+                               onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937'}
                              >
                                Add
                              </button>
@@ -705,17 +753,48 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
              <button
                onClick={handleContinue}
                disabled={!formData.fullName || !formData.email || !formData.enrollment || !formData.learningJourney}
-               className="px-6 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+               className="px-6 py-2 text-white rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+               style={{ backgroundColor: '#1F2937' }}
+               onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
+               onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937'}
              >
                Continue
              </button>
            ) : (
                             <button
                  onClick={handleSubmit}
-                 disabled={formData.interests.length === 0 || formData.activities.length === 0 || !formData.heardFrom}
-                 className="px-6 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                 disabled={formData.interests.length === 0 || formData.activities.length === 0 || !formData.heardFrom || loading || isSubmitted}
+                 className="px-6 py-2 text-white rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+               style={{ backgroundColor: '#1F2937' }}
+               onMouseEnter={(e) => {
+                 if (!loading && !isSubmitted) {
+                   (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400';
+                 }
+               }}
+               onMouseLeave={(e) => {
+                 if (!loading && !isSubmitted) {
+                   (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937';
+                 }
+               }}
                >
-                 Submit
+                 {loading ? (
+                   <>
+                     <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                     </svg>
+                     Submitting...
+                   </>
+                 ) : isSubmitted ? (
+                   <>
+                     <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                     </svg>
+                     Submitted!
+                   </>
+                 ) : (
+                   'Submit'
+                 )}
                </button>
            )}
         </div>

@@ -340,3 +340,63 @@ export const useTeam = () => {
 
   return { team, loading, error, fetchTeam }
 }
+
+// Interest Form
+export const useInterestForm = () => {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const submitInterestForm = async (formData: Tables['InterestForm']['Insert']) => {
+    try {
+      setLoading(true)
+      setError(null)
+      
+      const { data, error } = await supabase
+        .from('InterestForm')
+        .insert(formData)
+        .select()
+        .single()
+
+      if (error) throw error
+      return data
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'An error occurred while submitting the form'
+      setError(errorMessage)
+      throw err
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return { submitInterestForm, loading, error }
+}
+
+// Contact Form
+export const useContactForm = () => {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const submitContactForm = async (formData: { name: string; email: string; message: string }) => {
+    try {
+      setLoading(true)
+      setError(null)
+      
+      const { data, error } = await supabase
+        .from('contact_submissions')
+        .insert(formData)
+        .select()
+        .single()
+
+      if (error) throw error
+      return data
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'An error occurred while submitting the contact form'
+      setError(errorMessage)
+      throw err
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return { submitContactForm, loading, error }
+}

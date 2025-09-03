@@ -116,7 +116,10 @@ const ShowcaseSection: React.FC = () => {
                 <p className="text-gray-600 text-sm mb-4">{error}</p>
                 <button 
                   onClick={() => window.location.reload()} 
-                  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
+                  className="text-white px-4 py-2 rounded transition-colors"
+                  style={{ backgroundColor: '#1F2937' }}
+                  onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
+                  onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937'}
                 >
                   Retry
                 </button>
@@ -160,26 +163,26 @@ const ShowcaseSection: React.FC = () => {
   }
 
   return (
-    <section className="py-16 min-h-screen" id="projects">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="bg-gray-100 rounded-2xl p-12 shadow-lg">
-          <div className="space-y-8">
+    <section className="py-8 sm:py-12 md:py-16 min-h-screen" id="projects">
+      <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+        <div className="bg-gray-100 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 shadow-lg">
+          <div className="space-y-6 sm:space-y-8">
             {/* Title and Description */}
-            <div className="text-center space-y-4">
-              <h1 className="text-4xl font-bold text-gray-800">
+            <div className="text-center space-y-3 sm:space-y-4">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
                 Learning experiences
               </h1>
-              <p className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
                 The projects below show the kind of real-world challenges you'll work on during your cohort, built in teams, guided by mentors, and powered by your curiosity.
               </p>
             </div>
 
             {/* Project Image and Details */}
-            <div className="flex gap-12 items-start">
+            <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-start">
               {/* Image Section */}
-              <div className="flex-shrink-0">
-                <div className="relative">
-                  <div className="w-80 h-96 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl overflow-hidden relative shadow-lg">
+              <div className="flex-shrink-0 w-full lg:w-auto">
+                <div className="relative mx-auto lg:mx-0">
+                  <div className="w-full max-w-sm sm:max-w-md lg:w-80 h-64 sm:h-80 lg:h-96 bg-gradient-to-br from-green-100 to-green-200 rounded-xl sm:rounded-2xl overflow-hidden relative shadow-lg">
                     <img 
                       src={currentImage} 
                       alt={currentProject ? currentProject.Title : defaultProject.title}
@@ -190,32 +193,32 @@ const ShowcaseSection: React.FC = () => {
               </div>
 
               {/* Project Details */}
-              <div className="flex-1 space-y-6">
+              <div className="flex-1 space-y-4 sm:space-y-6 w-full">
                 <div>
-                  <h3 className="text-3xl font-bold text-gray-800 mb-4">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">
                     {currentProject ? currentProject.Title : defaultProject.title}
                   </h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
                     {currentProject ? currentProject.description : defaultProject.description}
                   </p>
                 </div>
                 
                 {/* Features List */}
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {features.map((feature, index) => (
-                    <div key={index} className="flex items-center">
-                      <span className="text-teal-500 mr-3 text-lg font-bold">+</span>
-                      <span className="text-gray-700 text-lg">{feature}</span>
+                    <div key={index} className="flex items-start">
+                      <span className="text-teal-500 mr-2 sm:mr-3 text-base sm:text-lg font-bold flex-shrink-0 mt-0.5">+</span>
+                      <span className="text-gray-700 text-sm sm:text-base md:text-lg">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Technology Tags */}
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {technologies.map((tech, index) => (
                     <span 
                       key={index}
-                      className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium"
+                      className="bg-gray-200 text-gray-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium"
                     >
                       {tech}
                     </span>
@@ -225,24 +228,24 @@ const ShowcaseSection: React.FC = () => {
             </div>
 
             {/* Navigation Controls */}
-            <div className="flex items-center justify-center space-x-6 pt-8">
+            <div className="flex items-center justify-center space-x-4 sm:space-x-6 pt-6 sm:pt-8">
               <div className="flex-1 border-t-2 border-dotted border-gray-300"></div>
               
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-3 sm:space-x-4">
                 <button 
                   onClick={prevImage}
-                  className="w-10 h-10 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full transition-colors text-gray-600"
+                  className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full transition-colors text-gray-600 text-sm sm:text-base"
                 >
                   ‹
                 </button>
                 
-                <div className="flex space-x-2">
+                <div className="flex space-x-1.5 sm:space-x-2">
                   {showcase.length > 0 ? (
                     // Show project dots if we have multiple projects
                     showcase.map((_, index) => (
                       <button
                         key={index}
-                        className={`w-3 h-3 rounded-full transition-colors ${
+                        className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors ${
                           index === currentProjectIndex ? 'bg-gray-800' : 'bg-gray-300'
                         }`}
                         onClick={() => {
@@ -256,7 +259,7 @@ const ShowcaseSection: React.FC = () => {
                     defaultProject.images.map((_, index) => (
                       <button
                         key={index}
-                        className={`w-3 h-3 rounded-full transition-colors ${
+                        className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors ${
                           index === currentImageIndex ? 'bg-gray-800' : 'bg-gray-300'
                         }`}
                         onClick={() => setCurrentImageIndex(index)}
@@ -267,7 +270,7 @@ const ShowcaseSection: React.FC = () => {
                 
                 <button 
                   onClick={nextImage}
-                  className="w-10 h-10 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full transition-colors text-gray-600"
+                  className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full transition-colors text-gray-600 text-sm sm:text-base"
                 >
                   ›
                 </button>
@@ -277,10 +280,10 @@ const ShowcaseSection: React.FC = () => {
             </div>
 
             {/* Footer Text */}
-            <div className="text-center pt-8">
+            <div className="text-center pt-6 sm:pt-8">
               <div className="flex items-center justify-center space-x-2 text-gray-500">
-                <span className="text-lg">ⓘ</span>
-                <span className="text-sm">
+                <span className="text-base sm:text-lg">ⓘ</span>
+                <span className="text-xs sm:text-sm">
                   Fall 2025 Cohort will be the first to leave their footprint; trailblazers of the Prototyp3 program.
                 </span>
               </div>

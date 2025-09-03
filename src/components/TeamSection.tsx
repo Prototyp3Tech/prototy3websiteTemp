@@ -59,16 +59,16 @@ const TeamSection: React.FC = () => {
         {/* <p className="section-subtitle">The brilliant minds behind Prototyp3</p> */}
         
         {/* Team Section - Always visible */}
-        <div className="mt-0 w-3xl">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">
+        <div className="mt-0 w-full max-w-4xl px-3 sm:px-4">
+          <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl p-6 sm:p-8 md:p-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 text-center mb-6 sm:mb-8">
               The humans behind Prototyp3
             </h2>
             
             {/* Team Avatars (dynamic) */}
-            <div className="flex justify-center items-center space-x-3 mb-8">
+            <div className="flex justify-center items-center flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
               {sortedTeam.length === 0 && (
-                <div className="w-[5.35rem] h-[5.35rem] rounded-full border-4 border-gray-300 overflow-hidden">
+                <div className="w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] md:w-[5.35rem] md:h-[5.35rem] rounded-full border-4 border-gray-300 overflow-hidden">
                   <img src={faceSvg} alt="Team" className="w-full h-full object-cover" />
                 </div>
               )}
@@ -79,7 +79,7 @@ const TeamSection: React.FC = () => {
                     key={member.id}
                     type="button"
                     onClick={() => setSelectedIndex(index)}
-                    className={`w-[5.35rem] h-[5.35rem] rounded-full border-4 overflow-hidden focus:outline-none transition-all duration-300 ${
+                    className={`w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] md:w-[5.35rem] md:h-[5.35rem] rounded-full border-4 overflow-hidden focus:outline-none transition-all duration-300 ${
                       isSelected ? 'border-orange-500' : 'border-gray-300'
                     }`}
                     aria-label={member.Name}
@@ -96,10 +96,10 @@ const TeamSection: React.FC = () => {
 
             {/* Selected Team Member Details */}
             {sortedTeam.length > 0 && (
-              <div className="text-center max-w-2xl mx-auto">
-                <h3 className="text-xl font-bold text-gray-800 mb-1">{sortedTeam[selectedIndex].Name}</h3>
-                <p className="text-gray-600 mb-4">{sortedTeam[selectedIndex].position}</p>
-                <p className="text-gray-700 leading-relaxed">{sortedTeam[selectedIndex].description}</p>
+              <div className="text-center max-w-2xl mx-auto px-2">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">{sortedTeam[selectedIndex].Name}</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">{sortedTeam[selectedIndex].position}</p>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{sortedTeam[selectedIndex].description}</p>
               </div>
             )}
           </div>

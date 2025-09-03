@@ -18,13 +18,13 @@ const Footer: React.FC = () => {
         
         {/* Right side - Social icons */}
         <div className="footer-right">
-          <a href="#" className="social-icon" aria-label="Discord">
+          <a href="https://discord.gg/AFbmtddjUz" className="social-icon" aria-label="Discord">
             <img src={discordSvg} alt="Discord" />
           </a>
-          <a href="#" className="social-icon" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/prototyp3-org/" className="social-icon" aria-label="LinkedIn">
             <img src={linkedinSvg} alt="LinkedIn" />
           </a>
-          <a href="#" className="social-icon" aria-label="Email">
+          <a href="mailto:prototyp3.org@gmail.com" className="social-icon" aria-label="Email">
             <img src={emailSvg} alt="Email" />
           </a>
         </div>
