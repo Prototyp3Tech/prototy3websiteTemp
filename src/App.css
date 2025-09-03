@@ -142,7 +142,7 @@ button{
 .logoFont{
   color: var(--On-Surface, #1F2937);
   text-align: center;
-  font-family: var(--font-headline);
+  font-family: Helvetica;
   font-size: 28px;
   font-style: normal;
   font-weight: 700;
