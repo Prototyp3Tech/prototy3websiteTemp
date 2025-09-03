@@ -138,6 +138,7 @@ button{
   100% { opacity: .3; transform: scale(.8) }
 }
 
+
 .logoFont{
   color: var(--On-Surface, #1F2937);
   text-align: center;
@@ -160,9 +161,11 @@ button{
   max-height: 80vh;
 }
 .heroRight{
-  margin-bottom: -30%;
-  margin-left: -13%;
+  margin-bottom: -50%;
+  margin-right: 10vw;
+  /* transform: translateX(-50vw); */
 }
+
 
 /* Mobile responsive adjustments for hero section */
 @media (max-width: 1024px) {

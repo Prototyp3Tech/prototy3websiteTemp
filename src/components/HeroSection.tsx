@@ -1,4 +1,5 @@
 import heroRightSvg from '../assets/svgs/heroRight.svg';
+import heroRightSvg2 from '../assets/svgs/heroSVG2.svg';
 
 interface HeroSectionProps {
   illustrationSrc?: string;
@@ -13,9 +14,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
 
   return (
-    <section className="text-gray-800 py-8 sm:py-12 md:py-20 min-h-screen flex items-center relative overflow-hidden" id="hero">
+    <section className="text-gray-800 py-8 sm:py-12 md:py-20 min-h-screen relative overflow-hidden" id="hero">
       
-      <div className="mx-auto px-3 sm:px-5 grid grid-cols-1 lg:grid-cols-2 gridFixer gap-8 lg:gap-12">
+      {/* <div className="mx-auto px-3 sm:px-5 grid grid-cols-1 lg:grid-cols-2 gridFixer gap-8 lg:gap-12"> */}
+      <div className="mx-auto px-3 sm:px-5 absolute w-[40vw] left-[18vw] top-[30%]">
         <div className="flex justify-center order-2 lg:order-1">
           <div className="transWhite p-4 sm:p-6 md:p-12 pb-4 rounded-xl sm:rounded-2xl shadow-2xl heroLeft w-full max-w-lg lg:max-w-none">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-gray-700">
@@ -42,7 +44,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
         
-        <div className="flex order-1 lg:order-2 justify-center lg:justify-start">
+        <div className="absolute w-[28vw] right-[-25vw] bottom-[0%]">
           {illustrationSrc ? (
             <img 
               src={illustrationSrc} 
@@ -51,7 +53,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             />
           ) : (
             <img 
-              src={heroRightSvg} 
+              src={heroRightSvg2} 
               alt={illustrationAlt}
               className="max-w-full h-auto rounded-xl sm:rounded-2xl heroRight w-full max-w-md lg:max-w-none"
             />
