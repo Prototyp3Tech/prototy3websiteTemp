@@ -46,6 +46,7 @@ const DiscordSection: React.FC = () => {
                 <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                   We hang out, help each other out, and sometimes just vibe.
                 </p>
+                <a href="https://discord.gg/AFbmtddjUz">
                 <button 
                   className="group text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg cursor-pointer transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-fit" 
                   style={{ backgroundColor: '#1F2937' }}
@@ -57,6 +58,7 @@ const DiscordSection: React.FC = () => {
                     <span className="hidden group-hover:inline">{'{ Join our Discord }'}</span>
                   </span>
                 </button>
+                </a>
               </div>
 
               {/* Right Section - Discord Logo */}

@@ -14,7 +14,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
 
   return (
-    <section className="text-gray-800 py-8 sm:py-12 md:py-20 min-h-screen relative overflow-hidden" id="hero">
+    <section className="text-gray-800 pt-8 sm:pt-12 md:pt-20 min-h-screen relative overflow-hidden" id="hero">
       
       {/* <div className="mx-auto px-3 sm:px-5 grid grid-cols-1 lg:grid-cols-2 gridFixer gap-8 lg:gap-12"> */}
       <div className="mx-auto px-3 sm:px-5 absolute w-[40vw] left-[18vw] top-[30%]">
