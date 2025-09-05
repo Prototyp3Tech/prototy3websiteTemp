@@ -717,6 +717,11 @@ button{
   margin-top: 1rem;
   width: fit-content;
 }
+@media (max-width: 1600px) {
+  .breakpointFix {
+    max-height: 68vh;
+  }
+}
 
 .submit-button:hover:not(:disabled) {
   background: #FA6400;
@@ -813,8 +818,7 @@ button{
    ========================= */
 .footer {
   /* background: #20B2AA; */
-  padding: 2rem 0;
-  color: white;
+  padding-bottom: 30px;
 }
 
 .footer-container {

@@ -3,6 +3,7 @@ import { useState } from 'react';
 // import pixlnextSvg from '../assets/svgs/pixlnext.svg';
 import SciSocSvg from '../assets/svgs/SciSoc.svg';
 import CarletonSciSoc from '../assets/svgs/CalretonU.svg';
+import sscvertical from '../assets/svgs/SSSC_Vertical_Colour.svg';
 // import sportlinkSvg from '../assets/svgs/sportlink.svg';
 import orangeBgSvg from '../assets/svgs/oragngebg.svg';
 import tailedSvg from '../assets/svgs/tailed.svg';
@@ -53,6 +54,7 @@ const SponsorsSection: React.FC = () => {
     // { name: "SportzLinkz", logo: sportlinkSvg, alt: "SportzLinkz" },
     { name: "Carleton University SciSoc", logo: SciSocSvg, alt: "Carleton University SciSoc" },
     { name: "Carleton University SciSoc", logo: CarletonSciSoc, alt: "Carleton University SciSoc" },
+    { name: "Carleton University SciSoc", logo: sscvertical, alt: "Carleton University SciSoc" },
     // { name: "NOKIA", logo: nokiaSvg, alt: "NOKIA" },
     { name: "Tail'ed", logo: tailedSvg, alt: "Tail'ed" }
   ];

@@ -17,7 +17,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="mx-auto px-3 px-5 pt-5 max-w-[80vw] md:ml-[15vw]">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh] gap-[0px]">
           {/* Content Section */}
-          <div className="flex justify-center align-top w-auto max-w-none max-h-[60vh] md:max-h-[100vh] lg:max-h-[55vh] lg:justify-start order-1 lg:order-1 z-10">
+          <div className="flex justify-center align-top w-auto max-w-none max-h-[60vh] breakpointFix lg:max-h-[55vh] lg:justify-start order-1 lg:order-1 z-10">
             <div className="transWhite p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl shadow-2xl">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-gray-700">
                 <span className="text-orange-500 font-extrabold">{'{'}</span> From classroom to collaboration.
