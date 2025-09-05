@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenInterestForm }) => {
               <a href="#hero">
                 <span className="inline-flex items-center">
                   <img src={logo} alt="Prototyp3" className="w-8 h-8 sm:w-10 sm:h-10" />
-                  <span className="logoFont ml-2 sm:ml-[10px] text-lg sm:text-xl md:text-2xl" style={{ fontFamily: 'var(--font-headline)' }}>Prototyp3</span>
+                  <span className="logoFont ml-2 sm:ml-[10px] text-lg sm:text-xl md:text-2xl" >Prototyp3</span>
                 </span>
               </a>
             </div>
