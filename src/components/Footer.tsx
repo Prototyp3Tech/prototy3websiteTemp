@@ -1,6 +1,8 @@
 import discordSvg from '../assets/svgs/discord.svg';
 import linkedinSvg from '../assets/svgs/linkedin.svg';
 import emailSvg from '../assets/svgs/email.svg';
+import logo from '../assets/logo/logo.svg';
+
 
 const Footer: React.FC = () => {
   return (
@@ -8,9 +10,14 @@ const Footer: React.FC = () => {
       <div className="footer-container">
         {/* Left side - Logo and tagline */}
         <div className="footer-left">
-          <h2 className="footer-logo">
-            Prototyp<span className="logo-accent">3</span>
-          </h2>
+          <div className="flex items-center">
+              <a href="#hero">
+                <span className="inline-flex items-center">
+                  <img src={logo} alt="Prototyp3" className="w-8 h-8 sm:w-10 sm:h-10" />
+                  <span className="logoFont ml-2 sm:ml-[10px] text-lg sm:text-xl md:text-2xl" style={{ fontFamily: 'var(--font-headline)' }}>Prototyp3</span>
+                </span>
+              </a>
+          </div>
           <p className="footer-tagline">
             Join Fall 2025 Cohort. Where learning meets doing.
           </p>
