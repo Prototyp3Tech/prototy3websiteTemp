@@ -7,8 +7,7 @@ interface HeroSectionProps {
   onOpenInterestForm: () => void;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ 
-  illustrationSrc, 
+const HeroSection: React.FC<HeroSectionProps> = ({  
   illustrationAlt = "Prototyp3 platform illustration",
   onOpenInterestForm
 }) => {
