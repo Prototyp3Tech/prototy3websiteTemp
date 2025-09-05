@@ -150,30 +150,16 @@ button{
   letter-spacing: -1.4px;
 }
 
-.gridFixer{
-  width: 70vw;
-  grid-template-columns: 2.5fr 1.5fr;
-}
-
+/* Hero section responsive styles */
 .heroLeft{
-  margin-top: -25%;
   z-index: 2;
-  max-height: 80vh;
-}
-.heroRight{
-  margin-bottom: -50%;
-  margin-right: 10vw;
-  /* transform: translateX(-50vw); */
 }
 
+
+/* Hero right section styles removed - now handled by responsive grid */
 
 /* Mobile responsive adjustments for hero section */
 @media (max-width: 1024px) {
-  .gridFixer {
-    width: 90vw;
-    grid-template-columns: 1fr;
-  }
-  
   .heroLeft {
     margin-top: 0;
     max-height: none;
@@ -186,8 +172,69 @@ button{
 }
 
 @media (max-width: 768px) {
-  .gridFixer {
-    width: 95vw;
+  /* Additional mobile-specific adjustments */
+  .heroLeft {
+    padding: 1rem !important;
+  }
+  
+  /* Ensure proper spacing on tablets */
+  #hero {
+    padding-top: 3rem;
+    min-height: 90vh;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Small mobile devices */
+  #hero {
+    padding-top: 2rem;
+    min-height: 85vh;
+  }
+  
+  .heroLeft {
+    padding: 0.75rem !important;
+  }
+  
+  /* Typography adjustments for small mobile */
+  #hero h1 {
+    line-height: 1.1 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  #hero p {
+    line-height: 1.4 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Button adjustments for small mobile */
+  #hero button {
+    min-height: 48px; /* Larger touch target for mobile */
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Very small mobile devices */
+  .heroLeft {
+    padding: 0.5rem !important;
+  }
+  
+  #hero {
+    padding-top: 1.5rem;
+    min-height: 80vh;
+  }
+  
+  /* Image adjustments for very small screens */
+  #hero img {
+    max-height: 300px;
+    object-fit: contain;
+  }
+  
+  /* Button adjustments for very small screens */
+  #hero button {
+    min-height: 44px; /* Ensure touch target is large enough */
+    font-size: 0.875rem !important;
+    padding: 0.75rem 1rem !important;
   }
 }
 .step1-content {
