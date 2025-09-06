@@ -715,6 +715,7 @@ button{
 @media (width >= 1970px) {
   .breakpointFix {
     max-height: 45vh;
+    font-size: 2rem;
   }
 }
 

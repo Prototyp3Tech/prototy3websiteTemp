@@ -19,9 +19,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Content Section */}
           <div className="flex justify-center align-top w-auto max-w-none max-h-[60vh] breakpointFix lg:max-h-[55vh] lg:justify-start order-1 lg:order-1 z-10">
             <div className="transWhite p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl shadow-2xl">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-gray-700">
+              <h1 className="breakpointFix lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-gray-700">
                 <span className="text-orange-500 font-extrabold">{'{'}</span>Zero Experience?</h1>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-gray-700">Perfect. Let's Build.</h1>
+                <h1 className="breakpointFix lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-gray-700">Perfect. Let's Build.</h1>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-600 leading-relaxed">
               We run real-world tech project cohorts with co-working sessions, mentors, and practical projects that actually matter.
               </p>
@@ -46,7 +46,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Illustration Section */}
           <div className="flex justify-center self-end lg:justify-start h-full md:ml-[-3vw] md:max-h-[55vh] order-2 lg:order-2">
             <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
-              { <img src={heroRightSvg2} alt={illustrationAlt} className="h-fullw-[25vw] rounded-xl sm:rounded-2xl heroRightSvg"/>}
+              { <img src={heroRightSvg2} alt={illustrationAlt} className="h-full w-[25vw] rounded-xl sm:rounded-2xl heroRightSvg"/>}
             </div>
           </div>
         </div>
