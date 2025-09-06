@@ -22,7 +22,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <h1 className="breakpointFix lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-gray-700">
                 <span className="text-orange-500 font-extrabold">{'{'}</span>Zero Experience?</h1>
                 <h1 className="breakpointFix lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-gray-700">Perfect. Let's Build.</h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-600 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-600 leading-relaxed" style={{color: '#4C545F'}}>
               We run real-world tech project cohorts with co-working sessions, mentors, and practical projects that actually matter.
               </p>
               <button 
@@ -37,8 +37,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <span className="hidden group-hover:inline">{'{ Fill out Interest Form }'}</span>
                 </span>
               </button>
-              <p className="text-xs sm:text-sm text-gray-400 text-center lg:text-left m-0">
-                Let us know if you're interested to register when Fall 2025 cohorts go live.
+              <p className="text-xs sm:text-sm text-gray-400 text-center lg:text-left m-0" style={{color: '#1F2937'}}>
+                  Want in? Register your interest for our upcoming cohorts.
               </p>
             </div>
           </div>
