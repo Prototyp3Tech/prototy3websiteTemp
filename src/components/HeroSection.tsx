@@ -20,14 +20,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="flex justify-center align-top w-auto max-w-none max-h-[60vh] breakpointFix lg:max-h-[55vh] lg:justify-start order-1 lg:order-1 z-10">
             <div className="transWhite p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl shadow-2xl">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-gray-700">
-                <span className="text-orange-500 font-extrabold">{'{'}</span> From classroom to collaboration.
-              </h1>
+                <span className="text-orange-500 font-extrabold">{'{'}</span>Zero Experience?</h1>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-gray-700">Perfect. Let's Build.</h1>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-600 leading-relaxed">
-                Prototyp3 bridges the gap between school and the real world. Get paired with projects from real companies. Work with their team and mentors to grow your confidence as a builder one project at a time.
+              We run real-world tech project cohorts with co-working sessions, mentors, and practical projects that actually matter.
               </p>
               <button 
                 onClick={onOpenInterestForm}
-                className="group text-white border-none py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold text-sm sm:text-base lg:text-lg cursor-pointer transition-all duration-300 mb-4 sm:mb-6 w-full sm:w-fit hover:sm:w-80 hover:shadow-lg hover:-translate-y-0.5"
+                className="group text-white border-none py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold text-sm sm:text-base lg:text-lg cursor-pointer transition-all duration-300 mb-4 sm:mb-6 w-full sm:w-fit hover:shadow-lg hover:-translate-y-0.5"
                 style={{ backgroundColor: '#1F2937' }}
                 onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
                 onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937'}

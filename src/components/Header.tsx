@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenInterestForm }) => {
             {/* CTA */}
             <button 
               onClick={onOpenInterestForm}
-              className="group text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:px-6 sm:hover:px-8 hover:shadow-lg hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto"
+              className="group text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto"
               style={{ backgroundColor: '#1F2937' }}
               onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
               onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937'}

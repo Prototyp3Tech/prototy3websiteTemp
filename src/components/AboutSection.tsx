@@ -87,7 +87,7 @@ const AboutSection: React.FC = () => {
                         <button
                           onClick={prevStep}
                           disabled={currentStep === 1}
-                          className="nav-btn prev-btn bg-white text-black px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:px-6 hover:text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-300"
+                          className="nav-btn prev-btn bg-white text-black px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300  hover:text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-300"
                           onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
                           onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = 'white'}
                           aria-label="Previous"
@@ -99,7 +99,7 @@ const AboutSection: React.FC = () => {
                         </button>
                         <button
                           onClick={nextStep}
-                          className="nav-btn next-btn text-white px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:px-6 hover:shadow-lg hover:-translate-y-0.5"
+                          className="nav-btn next-btn text-white px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300  hover:shadow-lg hover:-translate-y-0.5"
                           style={{ backgroundColor: '#1F2937' }}
                           onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
                           onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937'}
@@ -143,7 +143,7 @@ const AboutSection: React.FC = () => {
                           <button
                             onClick={prevStep}
                             disabled={currentStep === 1}
-                            className="nav-btn prev-btn bg-white text-black px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:px-6 hover:text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-300"
+                            className="nav-btn prev-btn bg-white text-black px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300  hover:text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-300"
                           onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
                           onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = 'white'}
                             aria-label="Previous"
@@ -155,7 +155,7 @@ const AboutSection: React.FC = () => {
                           </button>
                           <button
                             onClick={nextStep}
-                            className="nav-btn next-btn text-white px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:px-6 hover:shadow-lg hover:-translate-y-0.5"
+                            className="nav-btn next-btn text-white px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300  hover:shadow-lg hover:-translate-y-0.5"
                           style={{ backgroundColor: '#1F2937' }}
                           onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
                           onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937'}
@@ -193,7 +193,7 @@ const AboutSection: React.FC = () => {
                           <button
                             onClick={prevStep}
                             disabled={currentStep === 1}
-                            className="nav-btn prev-btn group bg-white text-black px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:px-6 hover:text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-300"
+                            className="nav-btn prev-btn group bg-white text-black px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300  hover:text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-300"
                             onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
                             onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = 'white'}
                             aria-label="Previous"
@@ -205,7 +205,7 @@ const AboutSection: React.FC = () => {
                           </button>
                           <button
                             onClick={nextStep}
-                            className="nav-btn next-btn group text-white px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:px-6 hover:shadow-lg hover:-translate-y-0.5"
+                            className="nav-btn next-btn group text-white px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300  hover:shadow-lg hover:-translate-y-0.5"
                             style={{ backgroundColor: '#1F2937' }}
                             onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
                             onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937'}
@@ -243,7 +243,7 @@ const AboutSection: React.FC = () => {
                           <button
                             onClick={prevStep}
                             disabled={currentStep === 1}
-                            className="nav-btn prev-btn group bg-white text-black px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:px-6 hover:text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-300"
+                            className="nav-btn prev-btn group bg-white text-black px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300  hover:text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-300"
                             onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
                             onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = 'white'}
                             aria-label="Previous"
@@ -255,7 +255,7 @@ const AboutSection: React.FC = () => {
                           </button>
                           <button
                             onClick={nextStep}
-                            className="nav-btn next-btn group text-white px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:px-6 hover:shadow-lg hover:-translate-y-0.5"
+                            className="nav-btn next-btn group text-white px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300  hover:shadow-lg hover:-translate-y-0.5"
                             style={{ backgroundColor: '#1F2937' }}
                             onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
                             onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937'}
@@ -302,7 +302,7 @@ const AboutSection: React.FC = () => {
                         <button
                           onClick={prevStep}
                           disabled={currentStep === 1}
-                          className="nav-btn prev-btn group bg-white text-black px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:px-6 hover:text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-300"
+                          className="nav-btn prev-btn group bg-white text-black px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300  hover:text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-300"
                           onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
                           onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = 'white'}
                           aria-label="Previous"
@@ -314,7 +314,7 @@ const AboutSection: React.FC = () => {
                         </button>
                         <button
                           onClick={() => setCurrentStep(1)}
-                          className="nav-btn next-btn group text-white px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:px-6 hover:shadow-lg hover:-translate-y-0.5"
+                          className="nav-btn next-btn group text-white px-4 py-2 rounded-lg font-semibold cursor-pointer transition-all duration-300  hover:shadow-lg hover:-translate-y-0.5"
                           style={{ backgroundColor: '#1F2937' }}
                           onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#FA6400'}
                           onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1F2937'}

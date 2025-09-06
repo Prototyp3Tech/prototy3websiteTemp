@@ -159,17 +159,7 @@ button{
 /* Hero right section styles removed - now handled by responsive grid */
 
 /* Mobile responsive adjustments for hero section */
-@media (max-width: 1024px) {
-  .heroLeft {
-    margin-top: 0;
-    max-height: none;
-  }
-  
-  .heroRight {
-    margin-bottom: 0;
-    margin-left: 0;
-  }
-}
+
 
 @media (max-width: 768px) {
   /* Additional mobile-specific adjustments */
@@ -459,7 +449,7 @@ button{
 }
 .reset-btn:hover {
   background: #FA6400;
-  transform: scale(1.05) translateY(-2px);
+  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
@@ -717,9 +707,14 @@ button{
   margin-top: 1rem;
   width: fit-content;
 }
-@media (max-width: 1600px) {
+@media (width <= 1650px) {
   .breakpointFix {
-    max-height: 68vh;
+    max-height: 70vh;
+  }
+}
+@media (width >= 1970px) {
+  .breakpointFix {
+    max-height: 45vh;
   }
 }
 
@@ -727,7 +722,6 @@ button{
   background: #FA6400;
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  width: 320px;
 }
 
 .submit-button:disabled {
