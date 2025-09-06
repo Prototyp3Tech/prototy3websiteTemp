@@ -33,6 +33,10 @@ const Footer: React.FC = () => {
               <a href="mailto:prototyp3.org@gmail.com" className="social-icon" aria-label="Email">
                 <img src={emailSvg} alt="Email" />
               </a>
+              <a href="#/PrivacyPolicyPage"
+              className="text-gray-800 font-medium hover:text-teal-600 transition-colors text-sm sm:text-base">
+                Privacy Policy
+              </a>
             </nav>
 
             {/* CTA */}

@@ -10,9 +10,11 @@ import SponsorsSection from '../components/SponsorsSection';
 import Footer from '../components/Footer';
 import InterestForm from '../components/InterestForm';
 import BackgroundGlyphs from '../components/BackgroundGlyphs';
+import { PrivacyPolicyPage } from '../components/PrivacyPolicyPage';
 
 const Landing: React.FC = () => {
   const [isInterestFormOpen, setIsInterestFormOpen] = useState(false);
+  const [isPrivacyPolicy, setIsPrivacyPolicy] = useState(false);
 
   const openInterestForm = () => setIsInterestFormOpen(true);
   const closeInterestForm = () => setIsInterestFormOpen(false);
@@ -23,9 +25,10 @@ const Landing: React.FC = () => {
       if (window.location.hash === '#interest-form') {
         openInterestForm();
       }
+      setIsPrivacyPolicy(window.location.hash === '#/PrivacyPolicyPage');
     };
 
-    // Check hash on mount
+    // Run on mount
     checkHash();
 
     // Listen for hash changes
@@ -35,6 +38,18 @@ const Landing: React.FC = () => {
       window.removeEventListener('hashchange', checkHash);
     };
   }, []);
+
+  if (isPrivacyPolicy) {
+    return (
+      <div className="leading-relaxed text-gray-800 relative min-h-screen bg-white">
+        <Header onOpenInterestForm={openInterestForm} />
+        <div className="max-w-4xl mx-auto px-4 py-12">
+          <PrivacyPolicyPage />
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="leading-relaxed text-gray-800 relative min-h-screen" style={{
