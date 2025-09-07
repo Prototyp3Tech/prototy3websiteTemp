@@ -16,9 +16,15 @@ const Header: React.FC<HeaderProps> = ({ onOpenInterestForm }) => {
             {/* Logo */}
             <div className="flex items-center">
               <a href="#hero">
-                <span className="inline-flex items-center">
-                  <img src={logo} alt="Prototyp3" className="w-8 h-8 sm:w-10 sm:h-10" />
-                  <span className="logoFont ml-2 sm:ml-[10px] text-lg sm:text-xl md:text-2xl" >Prototyp3</span>
+                <span className="inline-flex items-center align-middle">
+                  <img
+                    src={logo}
+                    alt="Prototyp3"
+                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                  />
+                  <span className="logoFont ml-2 sm:ml-[10px] text-lg sm:text-xl md:text-2xl leading-none flex items-center">
+                    Prototyp3
+                  </span>
                 </span>
               </a>
             </div>
