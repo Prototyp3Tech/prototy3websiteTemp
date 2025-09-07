@@ -10,11 +10,13 @@ import SponsorsSection from '../components/SponsorsSection';
 import Footer from '../components/Footer';
 import InterestForm from '../components/InterestForm';
 import BackgroundGlyphs from '../components/BackgroundGlyphs';
-import { PrivacyPolicyPage } from '../components/PrivacyPolicyPage';
+import { PrivacyPolicy } from '../components/PrivacyPolicy';
+import { TermsOfService } from '../components/TermsOfService';
 
 const Landing: React.FC = () => {
   const [isInterestFormOpen, setIsInterestFormOpen] = useState(false);
   const [isPrivacyPolicy, setIsPrivacyPolicy] = useState(false);
+  const [isTermsOfService, setIsTermsOfService] = useState(false);
 
   const openInterestForm = () => setIsInterestFormOpen(true);
   const closeInterestForm = () => setIsInterestFormOpen(false);
@@ -25,7 +27,8 @@ const Landing: React.FC = () => {
       if (window.location.hash === '#interest-form') {
         openInterestForm();
       }
-      setIsPrivacyPolicy(window.location.hash === '#/PrivacyPolicyPage');
+      setIsPrivacyPolicy(window.location.hash === '#/PrivacyPolicy');
+      setIsTermsOfService(window.location.hash === '#/TermsOfService');
     };
 
     // Run on mount
@@ -44,12 +47,23 @@ const Landing: React.FC = () => {
       <div className="leading-relaxed text-gray-800 relative min-h-screen bg-white">
         <Header onOpenInterestForm={openInterestForm} />
         <div className="max-w-4xl mx-auto px-4 py-12">
-          <PrivacyPolicyPage />
+          <PrivacyPolicy />
         </div>
         <Footer />
       </div>
     );
   }
+  if (isTermsOfService) {
+  return (
+    <div className="leading-relaxed text-gray-800 relative min-h-screen bg-white">
+      <Header onOpenInterestForm={openInterestForm} />
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        <TermsOfService />
+      </div>
+      <Footer />
+    </div>
+  );
+}
 
   return (
     <div className="leading-relaxed text-gray-800 relative min-h-screen" style={{

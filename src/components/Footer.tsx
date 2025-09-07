@@ -1,7 +1,4 @@
-import discordSvg from '../assets/svgs/discord.svg';
-import linkedinSvg from '../assets/svgs/linkedin.svg';
-import emailSvg from '../assets/svgs/email.svg';
-import logo from '../assets/logo/logo.svg';
+import { DiscordLogo, LinkedinLogo, Envelope } from "phosphor-react";
 
 
 const Footer: React.FC = () => {
@@ -12,30 +9,38 @@ const Footer: React.FC = () => {
         {/* the pill */}
         <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg px-3 sm:px-4 md:px-6 py-3 sm:py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-            {/* Logo */}
-            <div className="flex items-center">
-              <a href="#hero">
-                <span className="inline-flex items-center">
-                  <img src={logo} alt="Prototyp3" className="w-8 h-8 sm:w-10 sm:h-10" />
-                  <span className="logoFont ml-2 sm:ml-[10px] text-lg sm:text-xl md:text-2xl">Prototyp3</span>
-                </span>
+            <div className="flex items-center gap-4">
+              <a href="#/TermsOfService"
+              className="text-gray-800 font-medium hover:text-teal-600 transition-colors text-sm sm:text-base">
+                Terms of Service
+              </a>
+
+              <a href="#/PrivacyPolicy"
+              className="text-gray-800 font-medium hover:text-teal-600 transition-colors text-sm sm:text-base">
+                Privacy Policy
               </a>
             </div>
 
             {/* Nav */}
             <nav className="flex gap-4 sm:gap-6 md:gap-8 items-center">
-              <a href="https://discord.gg/AFbmtddjUz"  aria-label="Discord">
-                <img src={discordSvg} alt="Discord" />
+              <a
+                href="https://discord.gg/AFbmtddjUz"
+                aria-label="Discord"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DiscordLogo size={24} weight="regular" className="text-gray-800 hover:text-teal-600 transition-colors" />
               </a>
-              <a href="https://www.linkedin.com/company/prototyp3-org/" className="social-icon" aria-label="LinkedIn">
-                <img src={linkedinSvg} alt="LinkedIn" />
+              <a
+                href="https://www.linkedin.com/company/prototyp3-org/"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedinLogo size={24} weight="regular" className="text-gray-800 hover:text-teal-600 transition-colors" />
               </a>
-              <a href="mailto:prototyp3.org@gmail.com" className="social-icon" aria-label="Email">
-                <img src={emailSvg} alt="Email" />
-              </a>
-              <a href="#/PrivacyPolicyPage"
-              className="text-gray-800 font-medium hover:text-teal-600 transition-colors text-sm sm:text-base">
-                Privacy Policy
+              <a href="mailto:prototyp3.org@gmail.com" aria-label="Email">
+                <Envelope size={24} weight="regular" className="text-gray-800 hover:text-teal-600 transition-colors" />
               </a>
             </nav>
 
