@@ -19,11 +19,11 @@ const Header: React.FC<HeaderProps> = ({ onOpenInterestForm }) => {
                 <span className="inline-flex items-center align-middle">
                   <img
                     src={logo}
-                    alt="Prototyp3"
+                    alt="prototyp3"
                     className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                   />
                   <span className="logoFont ml-2 sm:ml-[10px] text-lg sm:text-xl md:text-2xl leading-none flex items-center">
-                    Prototyp3
+                    prototyp3
                   </span>
                 </span>
               </a>
