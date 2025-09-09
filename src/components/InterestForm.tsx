@@ -19,7 +19,7 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
     additionalInfo: ''
   });
 
-  const { submitInterestForm, loading, error } = useInterestForm();
+  const { submitInterestForm, loading, error, clearError } = useInterestForm();
 
   const [otherActivityText, setOtherActivityText] = useState('');
   const [otherInterestText, setOtherInterestText] = useState('');
@@ -53,6 +53,11 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
       ...prev,
       [name]: value
     }));
+    
+    // Clear error when user starts typing in email field
+    if (name === 'email' && error) {
+      clearError();
+    }
   };
 
 
@@ -127,6 +132,8 @@ const InterestForm: React.FC<InterestFormProps> = ({ isOpen, onClose }) => {
     if (window.location.hash === '#interest-form') {
       window.history.replaceState(null, '', window.location.pathname);
     }
+    // Clear any errors when closing
+    clearError();
     onClose();
   };
 

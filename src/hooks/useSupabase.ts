@@ -346,10 +346,35 @@ export const useInterestForm = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  const checkEmailExists = async (email: string): Promise<boolean> => {
+    try {
+      const { data, error } = await supabase
+        .from('InterestForm')
+        .select('email')
+        .eq('email', email)
+        .single()
+
+      if (error && error.code !== 'PGRST116') { // PGRST116 is "not found" error
+        throw error
+      }
+      
+      return !!data // Return true if data exists (email found), false otherwise
+    } catch (err) {
+      console.error('Error checking email:', err)
+      return false // Return false on error to allow submission (fail open)
+    }
+  }
+
   const submitInterestForm = async (formData: Tables['InterestForm']['Insert']) => {
     try {
       setLoading(true)
       setError(null)
+      
+      // Check if email already exists
+      const emailExists = await checkEmailExists(formData.email)
+      if (emailExists) {
+        throw new Error('Hey, you are already registered!')
+      }
       
       const { data, error } = await supabase
         .from('InterestForm')
@@ -368,7 +393,11 @@ export const useInterestForm = () => {
     }
   }
 
-  return { submitInterestForm, loading, error }
+  const clearError = () => {
+    setError(null)
+  }
+
+  return { submitInterestForm, loading, error, clearError }
 }
 
 // Contact Form
