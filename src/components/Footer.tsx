@@ -1,4 +1,4 @@
-import { DiscordLogo, LinkedinLogo, Envelope } from "phosphor-react";
+import { DiscordLogo, LinkedinLogo, Envelope, InstagramLogo } from "phosphor-react";
 
 
 const Footer: React.FC = () => {
@@ -23,6 +23,9 @@ const Footer: React.FC = () => {
 
             {/* Nav */}
             <nav className="flex gap-4 sm:gap-6 md:gap-8 items-center">
+              <a href="mailto:prototyp3.org@gmail.com" aria-label="Email">
+                <Envelope size={24} weight="regular" className="text-gray-800 hover:text-teal-600 transition-colors" />
+              </a>
               <a
                 href="https://discord.gg/AFbmtddjUz"
                 aria-label="Discord"
@@ -32,15 +35,20 @@ const Footer: React.FC = () => {
                 <DiscordLogo size={24} weight="regular" className="text-gray-800 hover:text-teal-600 transition-colors" />
               </a>
               <a
+                href="https://www.instagram.com/prototyp3_org/"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramLogo size={24} weight="regular" className="text-gray-800 hover:text-teal-600 transition-colors" />
+              </a>
+              <a
                 href="https://www.linkedin.com/company/prototyp3-org/"
                 aria-label="LinkedIn"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <LinkedinLogo size={24} weight="regular" className="text-gray-800 hover:text-teal-600 transition-colors" />
-              </a>
-              <a href="mailto:prototyp3.org@gmail.com" aria-label="Email">
-                <Envelope size={24} weight="regular" className="text-gray-800 hover:text-teal-600 transition-colors" />
               </a>
             </nav>
 
