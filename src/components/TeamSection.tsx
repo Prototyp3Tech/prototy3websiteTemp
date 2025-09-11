@@ -47,7 +47,7 @@ const TeamSection: React.FC = () => {
 
     const interval = setInterval(() => {
       setSelectedIndex(current => (current + 1) % sortedTeam.length);
-    }, 7000); // 7 seconds
+    }, 14000); // 14 seconds
 
     return () => clearInterval(interval);
   }, [sortedTeam.length])
