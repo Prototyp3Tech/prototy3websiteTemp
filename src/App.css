@@ -707,15 +707,46 @@ button{
   margin-top: 1rem;
   width: fit-content;
 }
+
+.picContFix {
+  margin-bottom: -10vh;
+}
+
 @media (width <= 1650px) {
   .breakpointFix {
-    max-height: 70vh;
+    max-height: 72vh;
+  }
+
+  .textFix {
+    font-size: 2.5rem;
+  }
+  .picContFix {
+    margin-left: 3vw;
+    margin-bottom: 3vh;
+  }
+
+  .picFix {
+    width: 30vw;
   }
 }
 @media (width >= 1970px) {
   .breakpointFix {
     max-height: 40vh;
     /* font-size: 2rem; */
+  }
+
+  .picContFix {
+    margin-bottom: -10vh;
+  }
+
+  .screenFix{
+    min-height: 50vh;
+    margin-top: 15vh;
+    
+  }
+
+  .picFix {
+    width: 50vw;
   }
 }
 
