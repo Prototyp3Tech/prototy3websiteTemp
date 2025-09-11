@@ -29,8 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                    Perfect. Let's Build.
                   </h1>
                   <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-600 leading-relaxed" style={{color: '#4C545F'}}>
-                    Prototyp3 bridges the gap between school and the real world. Get paired with projects from real companies. Work with their team and mentors to grow your confidence as a builder one project at a time.
-                  </p>
+                      We run real-world tech project cohorts with co-working sessions, mentors, and practical projects that actually matter.                  </p>
                   <button 
                     onClick={onOpenInterestForm}
                     className="group text-white border-none py-3 sm:py-4 px-6 sm:px-8 mobFixButton rounded-lg font-semibold text-sm sm:text-base lg:text-lg cursor-pointer transition-all duration-300 mb-4 sm:mb-6 w-full sm:w-fit hover:shadow-lg hover:-translate-y-0.5"
@@ -44,7 +43,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     </span>
                   </button>
                   <p className="text-xs sm:text-sm text-gray-400 text-left lg:text-left m-0" style={{color: '#1F2937'}}>
-                      Let us know if you're interested to register when Fall 2025 cohorts go live.
+                      Want in? Register your interest for our upcoming cohorts.
                   </p>
                 </div>
               </div>
