@@ -199,7 +199,7 @@ button{
   /* Button adjustments for small mobile */
   #hero button {
     min-height: 48px; /* Larger touch target for mobile */
-    width: 100% !important;
+    /* width: 100% !important; */
   }
 }
 
@@ -742,12 +742,152 @@ button{
   .screenFix{
     min-height: 50vh;
     margin-top: 15vh;
-    
+
   }
 
   .picFix {
     width: 50vw;
   }
+}
+
+@media (width <= 1000px) {
+  .mobFix {
+    display: none;
+  }
+
+  .mobContFix{
+    margin-left: 5vw;
+    max-width: 90vw;
+    padding: 40px 0 0 0;
+    max-height: 40vh;
+  }
+
+  .fontmobFix {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px; /* 125% */
+    letter-spacing: 0.48px;
+  }
+
+  .screenFix{
+    max-height: 40vh;
+  }
+
+  .mobFixwhiteCont{
+    max-height: 40vh;
+  }
+
+  .mobFixwhiteInner{
+    padding: 24px;
+  }
+
+  .mobFixButton{
+    width: 210px;
+  }
+
+  .picFix{
+    margin-top: 5vh;
+    width: 425px;
+    height: 425px;
+  }
+
+  .mobFixHeader nav {
+    display: none;
+  }
+  
+  .mobFixHeader .hamburger-menu {
+    display: flex;
+  }
+  
+  .mobFixHeader .desktop-cta {
+    display: none;
+  }
+  
+  .mobFixHeader .header-content {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  .mobFixHeader .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    min-width: 200px;
+    z-index: 1000;
+  }
+  
+  .mobFixHeader .mobile-menu.open {
+    display: block;
+  }
+  
+  .mobFixHeader .mobile-menu a {
+    display: block;
+    padding: 0.75rem 0;
+    color: #374151;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  
+  .mobFixHeader .mobile-menu a:last-of-type {
+    border-bottom: none;
+  }
+  
+  .mobFixHeader .mobile-menu button {
+    width: 100%;
+    margin-top: 0.75rem;
+  }
+}
+
+/* Base styles for hamburger menu - hidden by default */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+}
+
+.hamburger-menu span {
+  width: 25px;
+  height: 3px;
+  background-color: #374151;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.hamburger-menu.open span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.open span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Add open class to hamburger when mobile menu is open */
+.mobFixHeader .hamburger-menu.open span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobFixHeader .hamburger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobFixHeader .hamburger-menu.open span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
 .submit-button:hover:not(:disabled) {

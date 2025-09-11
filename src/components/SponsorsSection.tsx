@@ -1,10 +1,12 @@
 import { useState } from 'react';
 // import nokiaSvg from '../assets/svgs/nokia.svg';
-// import pixlnextSvg from '../assets/svgs/pixlnext.svg';
+import pixlnextSvg from '../assets/svgs/pixlnext.svg';
+import quizlab from '../assets/svgs/quislab.svg';
+import haydenSvg from '../assets/svgs/hayden.svg';
 import SciSocSvg from '../assets/svgs/SciSoc.svg';
 import CarletonSciSoc from '../assets/svgs/CalretonU.svg';
 import sscvertical from '../assets/svgs/SSSC_Vertical_Colour.svg';
-// import sportlinkSvg from '../assets/svgs/sportlink.svg';
+import sportlinkSvg from '../assets/svgs/sportlink.svg';
 import orangeBgSvg from '../assets/svgs/oragngebg.svg';
 import tailedSvg from '../assets/svgs/tailed.svg';
 import { useContactForm } from '../hooks/useSupabase';
@@ -49,9 +51,10 @@ const SponsorsSection: React.FC = () => {
   };
 
   const partners = [
-    // { name: "hayden's hub", logo: haydenSvg, alt: "Hayden's Hub" },
-    // { name: "PixlNext", logo: pixlnextSvg, alt: "PixlNext" },
-    // { name: "SportzLinkz", logo: sportlinkSvg, alt: "SportzLinkz" },
+    { name: "hayden's hub", logo: haydenSvg, alt: "Hayden's Hub" },
+    { name: "PixlNext", logo: pixlnextSvg, alt: "PixlNext" },
+    { name: "QuizLab", logo: quizlab, alt: "QuizLab" },
+    { name: "SportzLinkz", logo: sportlinkSvg, alt: "SportzLinkz" },
     { name: "Carleton University SciSoc", logo: SciSocSvg, alt: "Carleton University SciSoc" },
     { name: "Carleton University SciSoc", logo: CarletonSciSoc, alt: "Carleton University SciSoc" },
     { name: "Carleton University SciSoc", logo: sscvertical, alt: "Carleton University SciSoc" },
