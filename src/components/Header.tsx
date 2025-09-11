@@ -70,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenInterestForm }) => {
           </div>
 
           {/* Mobile Menu */}
-          <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+          <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`} style={{ display: isMobileMenuOpen ? 'block' : 'none' }}> 
             <a href="#about" className="text-gray-800 font-medium hover:text-teal-600 transition-colors">
               About
             </a>

@@ -805,9 +805,9 @@ button{
   }
   
   .mobFixHeader .header-content {
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .mobFixHeader .mobile-menu {
@@ -843,6 +843,27 @@ button{
   .mobFixHeader .mobile-menu button {
     width: 100%;
     margin-top: 0.75rem;
+  }
+}
+
+/* Desktop styles for screens > 1000px */
+@media (width > 1000px) {
+  .mobFixHeader .header-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .mobFixHeader nav {
+    display: flex;
+  }
+  
+  .mobFixHeader .hamburger-menu {
+    display: none;
+  }
+  
+  .mobFixHeader .desktop-cta {
+    display: block;
   }
 }
 
